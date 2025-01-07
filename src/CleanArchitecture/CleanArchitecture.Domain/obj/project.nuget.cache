@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "PG6s9mS6CdYZZsFRUwOlb8BinmOpW3d1KvH/wYf0ai89LptPcvNMCCCxuCKuRsyiP+K2R0D5L7oe4AgS69V0LQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\giova\\Documents\\cursos\\clean-arquitecture-DDD-AspNetCore8\\src\\CleanArchitecture\\CleanArchitecture.Domain\\CleanArchitecture.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\giova\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
