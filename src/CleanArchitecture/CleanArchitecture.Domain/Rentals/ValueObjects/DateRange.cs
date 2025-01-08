@@ -1,4 +1,4 @@
-namespace CleanArchitecture.Domain.Rentals.Entities;
+namespace CleanArchitecture.Domain.Rentals.ValueObjects;
 
 public sealed record DateRange 
 {
@@ -12,7 +12,7 @@ public sealed record DateRange
     public DateOnly End { get; private set; }
     public int Days => End.DayNumber - Start.DayNumber;
 
-    public DateRange Create (DateOnly start, DateOnly end)
+    public static DateRange Create (DateOnly start, DateOnly end)
     {
         if(start > end) 
         {

@@ -1,5 +1,8 @@
 using CleanArchitecture.Domain.Cars.Entities;
-using CleanArchitecture.Domain.Rentals.Entities;
+using  CleanArchitecture.Domain.Cars.ValueObjects;
+using CleanArchitecture.Domain.Rentals.ValueObjects;
+using CleanArchitecture.Domain.Shared.ValueObjects;
+
 
 namespace CleanArchitecture.Domain.Rentals.Services;
 

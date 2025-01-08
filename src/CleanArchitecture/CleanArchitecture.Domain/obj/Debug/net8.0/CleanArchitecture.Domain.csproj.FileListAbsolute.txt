@@ -9,3 +9,5 @@ C:\Users\giova\Documents\cursos\clean-arquitecture-DDD-AspNetCore8\src\CleanArch
 C:\Users\giova\Documents\cursos\clean-arquitecture-DDD-AspNetCore8\src\CleanArchitecture\CleanArchitecture.Domain\obj\Debug\net8.0\refint\CleanArchitecture.Domain.dll
 C:\Users\giova\Documents\cursos\clean-arquitecture-DDD-AspNetCore8\src\CleanArchitecture\CleanArchitecture.Domain\obj\Debug\net8.0\CleanArchitecture.Domain.pdb
 C:\Users\giova\Documents\cursos\clean-arquitecture-DDD-AspNetCore8\src\CleanArchitecture\CleanArchitecture.Domain\obj\Debug\net8.0\ref\CleanArchitecture.Domain.dll
+C:\Users\giova\Documents\cursos\clean-arquitecture-DDD-AspNetCore8\src\CleanArchitecture\CleanArchitecture.Domain\obj\Debug\net8.0\CleanArchitecture.Domain.csproj.AssemblyReference.cache
+C:\Users\giova\Documents\cursos\clean-arquitecture-DDD-AspNetCore8\src\CleanArchitecture\CleanArchitecture.Domain\obj\Debug\net8.0\CleanArchitecture.Domain.sourcelink.json

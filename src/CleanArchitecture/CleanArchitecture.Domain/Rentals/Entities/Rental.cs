@@ -1,5 +1,10 @@
 using CleanArchitecture.Domain.Abstractions;
+using CleanArchitecture.Domain.Shared.ValueObjects;
+using CleanArchitecture.Domain.Rentals.ValueObjects;
+using CleanArchitecture.Domain.Rentals.Events;
+using CleanArchitecture.Domain.Rentals.Services;
 using CleanArchitecture.Domain.Cars.Entities;
+using CleanArchitecture.Domain.Rentals.Errors;
 
 namespace CleanArchitecture.Domain.Rentals.Entities;
 
@@ -41,26 +46,17 @@ public sealed class Rental : Entity
     public DateRange RentalPeriod { get; private set; }
     public DateTime CreatedAt { get; private set; }
     public DateTime ConfirmationDate { get; private set; }
-    public DateTime BookingCancellationDate { get; private set; }
+    public DateTime BookingRejectDate { get; private set; }
     public DateTime CompletationDate { get; private set; }
     public DateTime CancellationDate { get; private set; }
 
-    public static Rental Book (
-        Guid carId,
-        Guid userId,
-        DateRange rentalPeriod,
-        PricingDetail pricingDetail,
-        DateTime createdAt
-    ) 
+    public static Rental Book (Guid userId, Car car, DateRange rentalPeriod, DateTime createdAt) 
     {
-        // Esta logica (asignacion de datos) va en la capa de aplicacion... 
-        // get car by id; 
-        // var car; 
-        // var pricingDetail = RentalPriceService.CalcTotalRentalPrice(car, rentalPeriod);
+        var pricingDetail = RentalPriceService.CalcTotalRentalPrice(car, rentalPeriod);
 
-        return new Rental(
+        var rental = new Rental(
             Guid.NewGuid(),
-            carId, 
+            car.Id, 
             userId,
             rentalPeriod,
             pricingDetail.BasePrice,
@@ -70,13 +66,80 @@ public sealed class Rental : Entity
             RentalStatus.Booked,
             createdAt
         );
+
+        rental.RaiseDomainEvent(new BookedRentalDomainEvent(rental.Id));
+
+        car.LastRentalDate = createdAt;
+
+        return rental; 
     }
 
-    public static void ConfirmBooking () {}
+    public Result Confirm (DateTime utcNow) 
+    {
+        // To confirm, rental must get the state booked previously this op
+        if(Status != RentalStatus.Booked)
+        {
+            return Result.Failure(RentalErrors.NotBooked); 
+        }
 
-    public static void CancellBooking () {}
+        Status = RentalStatus.Confirmed; 
+        ConfirmationDate = utcNow;
 
-    public static void Cancell () {}
+        RaiseDomainEvent(new ConfirmedRentalDomainEvent(Id)); 
 
-    //  public static void Completation () {}
+        return Result.Success(); 
+    }
+
+    public Result RejectBooking (DateTime utcNow) 
+    {
+        if(Status != RentalStatus.Booked)
+        {
+            return Result.Failure(RentalErrors.NotBooked); 
+        }
+
+        Status = RentalStatus.Rejected; 
+        BookingRejectDate = utcNow;
+
+        RaiseDomainEvent(new RejectedBookingRentalDomainEvent(Id)); 
+
+        return Result.Success();
+    }
+
+    public Result Cancel (DateTime utcNow) 
+    {
+        if(Status != RentalStatus.Confirmed)
+        {
+            return Result.Failure(RentalErrors.NotConfirmed); 
+        }
+
+        var currentDate = DateOnly.FromDateTime(utcNow);
+
+        if(currentDate > RentalPeriod.Start) 
+        {
+            return Result.Failure(RentalErrors.OnGoing); 
+        }
+
+        Status = RentalStatus.Cancelled; 
+        CancellationDate = utcNow;
+
+        RaiseDomainEvent(new CancelRentalDomainEvent(Id)); 
+
+        return Result.Success();
+    }
+
+    public Result Complete (DateTime utcNow) 
+    {
+        if(Status != RentalStatus.Confirmed)
+        {
+            return Result.Failure(RentalErrors.NotConfirmed); 
+        }
+
+        Status = RentalStatus.Completed; 
+        CompletationDate = utcNow;
+
+        RaiseDomainEvent(new CompletedRentalDomainEvent(Id)); 
+
+        return Result.Success();
+    }
+
 }

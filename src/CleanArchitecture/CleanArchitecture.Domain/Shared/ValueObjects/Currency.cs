@@ -1,4 +1,4 @@
-namespace CleanArchitecture.Domain.Cars.Entities;
+namespace CleanArchitecture.Domain.Shared.ValueObjects;
 
 /**
 * complex record (object value)

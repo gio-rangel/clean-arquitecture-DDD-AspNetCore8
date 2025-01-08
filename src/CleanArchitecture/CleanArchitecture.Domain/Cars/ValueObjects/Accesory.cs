@@ -1,4 +1,4 @@
-namespace CleanArchitecture.Domain.Cars.Entities;
+namespace CleanArchitecture.Domain.Cars.ValueObjects;
 
 public enum Accesory {
     Wifi = 1,

@@ -1,5 +1,6 @@
 using CleanArchitecture.Domain.Abstractions;
 using CleanArchitecture.Domain.Users.Events;
+using CleanArchitecture.Domain.Users.ValueObjects;
 
 namespace CleanArchitecture.Domain.Users.Entities;
 

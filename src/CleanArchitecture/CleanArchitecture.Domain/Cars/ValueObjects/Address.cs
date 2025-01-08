@@ -1,4 +1,4 @@
-namespace CleanArchitecture.Domain.Cars.Entities;
+namespace CleanArchitecture.Domain.Cars.ValueObjects;
 
 /**
 *Usando record:

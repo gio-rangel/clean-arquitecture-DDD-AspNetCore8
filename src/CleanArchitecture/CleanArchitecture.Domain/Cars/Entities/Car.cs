@@ -1,4 +1,6 @@
 using CleanArchitecture.Domain.Abstractions;
+using CleanArchitecture.Domain.Cars.ValueObjects;
+using CleanArchitecture.Domain.Shared.ValueObjects;
 
 namespace CleanArchitecture.Domain.Cars.Entities;
 
@@ -36,6 +38,6 @@ public sealed class Car : Entity {
     public CurrencyType? PriceCurrency {get; private set;}
     public Currency? MaintenancePrice {get; private set;}
     public CurrencyType? MaintenanceCurrency {get; private set;}
-    public DateTime? LastRentalDate {get; private set;}
+    public DateTime? LastRentalDate {get; internal set;}
     public List<Accesory> Accesories {get; private set;} = new();
 }

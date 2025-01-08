@@ -1,6 +1,6 @@
-using CleanArchitecture.Domain.Cars.Entities;
+using CleanArchitecture.Domain.Shared.ValueObjects;
 
-namespace CleanArchitecture.Domain.Rentals.Entities;
+namespace CleanArchitecture.Domain.Rentals.ValueObjects;
 
 public record PricingDetail (
     Currency BasePrice,
