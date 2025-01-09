@@ -1,3 +1,3 @@
-namespace CleanArchitecture.Domain.Users.Entities;
+namespace CleanArchitecture.Domain.Users.ValueObjects;
 
 public record Email (string Value);

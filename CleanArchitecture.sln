@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CleanArchitecture", "CleanA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Domain", "src\CleanArchitecture\CleanArchitecture.Domain\CleanArchitecture.Domain.csproj", "{5947820D-43A5-4456-83D1-C84DC4770A4F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Application", "src\CleanArchitecture\CleanArchitecture.Application\CleanArchitecture.Application.csproj", "{1AB8E105-80FD-40BF-B9CE-4861D86DF12A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,9 +24,14 @@ Global
 		{5947820D-43A5-4456-83D1-C84DC4770A4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5947820D-43A5-4456-83D1-C84DC4770A4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5947820D-43A5-4456-83D1-C84DC4770A4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AB8E105-80FD-40BF-B9CE-4861D86DF12A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AB8E105-80FD-40BF-B9CE-4861D86DF12A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AB8E105-80FD-40BF-B9CE-4861D86DF12A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AB8E105-80FD-40BF-B9CE-4861D86DF12A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9D0F70BC-64DE-40D8-82BA-56EB174530E1} = {44DFEFF1-7BCC-48E0-8180-4C23A6568BE6}
 		{5947820D-43A5-4456-83D1-C84DC4770A4F} = {9D0F70BC-64DE-40D8-82BA-56EB174530E1}
+		{1AB8E105-80FD-40BF-B9CE-4861D86DF12A} = {9D0F70BC-64DE-40D8-82BA-56EB174530E1}
 	EndGlobalSection
 EndGlobal

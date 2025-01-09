@@ -7,7 +7,7 @@ using CleanArchitecture.Domain.Shared.ValueObjects;
 namespace CleanArchitecture.Domain.Rentals.Services;
 
 
-public static class RentalPriceService 
+public class RentalPriceService 
 {
     public static PricingDetail CalcTotalRentalPrice(Car car, DateRange rentalPeriod) 
     {

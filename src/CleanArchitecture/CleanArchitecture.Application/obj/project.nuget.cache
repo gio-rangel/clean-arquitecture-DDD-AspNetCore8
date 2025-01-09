@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "9lZ/2yD/s8ZX8CuuUbK9bWVaSTTI+GszFharta6V4SoP9SHqPGUYfzZcAZ6VxR9p5a1ZQZ++Inl3irxPvBumqg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\giova\\Documents\\cursos\\clean-arquitecture-DDD-AspNetCore8\\src\\CleanArchitecture\\CleanArchitecture.Application\\CleanArchitecture.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\giova\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
+    "C:\\Users\\giova\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\giova\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

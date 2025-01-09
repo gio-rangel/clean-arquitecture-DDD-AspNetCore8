@@ -1,6 +1,7 @@
 using CleanArchitecture.Domain.Cars.Entities;
 using CleanArchitecture.Domain.Rentals.Entities;
 using CleanArchitecture.Domain.Rentals.ValueObjects;
+using CleanArchitecture.Domain.Users.Entities;
 
 namespace CleanArchitecture.Domain.Rentals.Interfaces;
 

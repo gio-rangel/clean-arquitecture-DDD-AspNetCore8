@@ -50,7 +50,12 @@ public sealed class Rental : Entity
     public DateTime CompletationDate { get; private set; }
     public DateTime CancellationDate { get; private set; }
 
-    public static Rental Book (Guid userId, Car car, DateRange rentalPeriod, DateTime createdAt) 
+    public static Rental Book (
+        Guid userId, 
+        Car car, 
+        DateRange rentalPeriod, 
+        DateTime createdAt
+    ) 
     {
         var pricingDetail = RentalPriceService.CalcTotalRentalPrice(car, rentalPeriod);
 
