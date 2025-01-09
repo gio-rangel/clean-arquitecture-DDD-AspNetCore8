@@ -5,6 +5,6 @@ namespace CleanArchitecture.Domain.Rentals.ValueObjects;
 public record PricingDetail (
     Currency BasePrice,
     Currency AccesoriesPrice,
-    Currency ManteinancePrice,
+    Currency MaintenancePrice,
     Currency TotalPrice
 );

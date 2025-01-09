@@ -1,4 +1,4 @@
-namespace CleanArchitecture.Domain.Rentals.Entities;
+namespace CleanArchitecture.Domain.Rentals.Enums;
 
 public enum RentalStatus 
 {

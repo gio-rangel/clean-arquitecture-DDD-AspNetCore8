@@ -3,6 +3,7 @@ using CleanArchitecture.Domain.Reviews.Events;
 using CleanArchitecture.Domain.Rentals.Entities;
 using CleanArchitecture.Domain.Rentals.Errors;
 using CleanArchitecture.Domain.Reviews.ValueObjects;
+using CleanArchitecture.Domain.Rentals.Enums;
 
 namespace CleanArchitecture.Domain.Reviews.Entities;
 

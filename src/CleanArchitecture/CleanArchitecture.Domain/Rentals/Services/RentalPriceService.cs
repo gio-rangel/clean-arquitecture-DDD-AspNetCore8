@@ -14,11 +14,11 @@ public class RentalPriceService
         var basePrice = CalcBasePrice(car, rentalPeriod);
         // Extra charges
         var accesoryPrice = CalcAccesoriesTotalPrice(car, basePrice);
-        var manteinancePrice = CalcManteinancePrice(car, basePrice);
+        var maintenancePrice = CalcMaintenancePrice(car, basePrice);
         
-        var totalPrice = basePrice + accesoryPrice + manteinancePrice;
+        var totalPrice = basePrice + accesoryPrice + maintenancePrice;
         
-        var pricingDetail = new PricingDetail(basePrice, accesoryPrice, manteinancePrice, totalPrice);
+        var pricingDetail = new PricingDetail(basePrice, accesoryPrice, maintenancePrice, totalPrice);
 
         return pricingDetail;
     }
@@ -71,7 +71,7 @@ public class RentalPriceService
         return  accesoryCharges; 
     }
 
-    private static Currency CalcManteinancePrice (Car car, Currency rentalPeriodPrice) 
+    private static Currency CalcMaintenancePrice (Car car, Currency rentalPeriodPrice) 
     {
         if (car.MaintenancePrice != null)
         {

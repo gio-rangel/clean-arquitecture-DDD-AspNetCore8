@@ -5,6 +5,7 @@ using CleanArchitecture.Domain.Rentals.Events;
 using CleanArchitecture.Domain.Rentals.Services;
 using CleanArchitecture.Domain.Cars.Entities;
 using CleanArchitecture.Domain.Rentals.Errors;
+using CleanArchitecture.Domain.Rentals.Enums;
 
 namespace CleanArchitecture.Domain.Rentals.Entities;
 
@@ -16,7 +17,7 @@ public sealed class Rental : Entity
         Guid userId,
         DateRange rentalPeriod,
         Currency basePrice,
-        Currency manteinancePrice,
+        Currency maintenancePrice,
         Currency accesoriesPrice,
         Currency finalPrice,
         RentalStatus status,
@@ -28,7 +29,7 @@ public sealed class Rental : Entity
         UserId = userId;
         RentalPeriod = rentalPeriod;
         BasePrice = basePrice;
-        ManteinancePrice = manteinancePrice;
+        MaintenancePrice = maintenancePrice;
         AccesoriesPrice = accesoriesPrice;
         FinalPrice = finalPrice;
         Status = status;
@@ -39,7 +40,7 @@ public sealed class Rental : Entity
     public Guid UserId { get; private set; }
     // BasePrice es el precio base (dias*precio de renta del auto)
     public Currency BasePrice { get; private set; }
-    public Currency ManteinancePrice { get; private set; }
+    public Currency MaintenancePrice { get; private set; }
     public Currency AccesoriesPrice { get; private set; }
     public Currency FinalPrice { get; private set; }
     public RentalStatus Status { get; private set; }
@@ -65,7 +66,7 @@ public sealed class Rental : Entity
             userId,
             rentalPeriod,
             pricingDetail.BasePrice,
-            pricingDetail.ManteinancePrice,
+            pricingDetail.MaintenancePrice,
             pricingDetail.AccesoriesPrice,
             pricingDetail.TotalPrice,
             RentalStatus.Booked,
