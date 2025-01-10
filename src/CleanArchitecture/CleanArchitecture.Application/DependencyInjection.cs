@@ -1,3 +1,4 @@
+using CleanArchitecture.Application.Abstractions.Behaviors;
 using CleanArchitecture.Domain.Rentals.Services;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -15,6 +16,8 @@ public static class DependencyInjection
 
         services.AddMediatR(configuration => {
             configuration.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly);
+            configuration.AddOpenBehavior(typeof(LoggingBehavior<,>));
+            configuration.AddOpenBehavior(typeof(ValidationBehavior<,>));
         }); 
 
         services.AddTransient<RentalPriceService>();
