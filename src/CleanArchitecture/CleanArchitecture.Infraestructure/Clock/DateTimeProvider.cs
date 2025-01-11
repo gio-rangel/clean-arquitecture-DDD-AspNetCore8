@@ -1,8 +1,0 @@
-using CleanArchitecture.Application.Abstractions.Clock;
-
-namespace CleanArchitecture.Infraestructure.Clock;
-
-internal sealed class DateTimeProvider : IDateTimeProvider
-{
-    public DateTime currentTime => DateTime.UtcNow;
-}
