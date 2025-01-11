@@ -1,5 +1,6 @@
 using CleanArchitecture.Application.Abstractions.Clock;
 using CleanArchitecture.Application.Abstractions.Messaging;
+using CleanArchitecture.Application.Exceptions;
 using CleanArchitecture.Domain.Abstractions;
 using CleanArchitecture.Domain.Cars.Interfaces;
 using CleanArchitecture.Domain.Rentals.Entities;
@@ -62,17 +63,23 @@ internal sealed class BookRentalCommandHandler : ICommandHandler<BookRentalComma
             return Result.Failure<Guid>(RentalErrors.Overlap);
         }
 
-        var rental = Rental.Book(
-            user.Id, 
-            car,
-            rentalPeriod,
-            _dateTimeProvider.currentTime
-        ); 
+        try {
+            var rental = Rental.Book(
+                user.Id, 
+                car,
+                rentalPeriod,
+                _dateTimeProvider.currentTime
+            ); 
 
-        _rentalRepository.Add(rental);
+            _rentalRepository.Add(rental);
 
-        await _unitOfWork.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
 
-        return rental.Id;
+            return rental.Id;
+        } catch (ConcurrencyException)
+        {
+            // La excepcion de concurrencia se usa cuando se quiere registrar una entidad que ya fue instanciada 
+            return Result.Failure<Guid>(RentalErrors.Overlap); 
+        }
     }
 }

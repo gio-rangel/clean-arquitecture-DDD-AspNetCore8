@@ -29,7 +29,7 @@ internal sealed class BookedRentalDomainEventHandler
         CancellationToken cancellationToken
     )
     {
-        var rental = await _rentalRepository.GetRentalByIdAsync(notification.RentalId, cancellationToken);
+        var rental = await _rentalRepository.GetByIdAsync(notification.RentalId, cancellationToken);
 
         if(rental is null)
         {
