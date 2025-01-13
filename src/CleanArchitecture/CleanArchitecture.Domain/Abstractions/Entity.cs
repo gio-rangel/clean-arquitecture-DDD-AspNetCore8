@@ -2,6 +2,7 @@ namespace CleanArchitecture.Domain.Abstractions;
 
 public abstract class Entity 
 {
+    protected Entity() {} // Initiate a protected constructor for children entities;
     private readonly List<IDomainEvent> _domainEvents = new();
     protected Entity(Guid id) 
     {

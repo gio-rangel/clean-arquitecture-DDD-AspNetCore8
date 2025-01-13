@@ -11,6 +11,8 @@ namespace CleanArchitecture.Domain.Rentals.Entities;
 
 public sealed class Rental : Entity 
 { 
+    private Rental() {}
+
     private Rental (
         Guid id,
         Guid carId,

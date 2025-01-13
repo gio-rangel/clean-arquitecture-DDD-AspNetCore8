@@ -29,12 +29,12 @@ internal sealed class CarConfiguration : IEntityTypeConfiguration<Car>
 
         builder.OwnsOne(car => car.Price, priceBuilder => 
             priceBuilder.Property(currency => currency.CurrencyType)
-                .HasConversion(currencyType => currencyType!.Code, code => CurrencyType.FromCode(code!))
+                .HasConversion(currencyType => currencyType.Code, code => CurrencyType.FromCode(code!))
         );
 
         builder.OwnsOne(car => car.MaintenancePrice, priceBuilder => 
             priceBuilder.Property(currency => currency.CurrencyType)
-                .HasConversion(currencyType => currencyType!.Code, code => CurrencyType.FromCode(code!))
+                .HasConversion(currencyType => currencyType.Code, code => CurrencyType.FromCode(code!))
         );
 
         builder.Property<uint>("Version").IsRowVersion();

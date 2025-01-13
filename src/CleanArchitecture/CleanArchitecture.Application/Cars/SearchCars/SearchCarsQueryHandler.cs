@@ -45,25 +45,24 @@ internal sealed class SearchCarsQueryHandler
                 c.id AS Id,
                 c.model AS MODEL,
                 c.vin AS Vin,
-                c.price AS Price,
-                c.priceCurrency AS PriceCurrencyType,
-                c.country_address AS Country,
-                c.depto_address AS Depto,
-                c.province_address AS Province,
-                c.city_address AS City,
-                c.street_address AS Street,
-                c.street_number_address AS StreetNumber,
+                c.price_amount AS Price,
+                c.price_currency_type AS PriceCurrency,
+                c.address_country AS Country,
+                c.address_depto AS Depto,
+                c.address_province AS Province,
+                c.address_city AS City,
+                c.address_street AS Street,
+                c.address_street_number AS StreetNumber
             FROM cars AS c
             WHERE NOT EXISTS
             (
                 SELECT 1 
                 FROM rentals AS r
                 WHERE 
-                    r.car_id = b.id
-                    r.start <= @End AND
-                    r.end >= @Start AND
+                    r.car_id = c.id AND
+                    r.rental_period_start <= @End AND
+                    r.rental_period_end >= @Start AND
                     r.status = ANY(@ActiveRentalStatuses)
-
             )
         """;
 

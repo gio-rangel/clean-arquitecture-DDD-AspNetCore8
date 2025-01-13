@@ -9,6 +9,7 @@ namespace CleanArchitecture.Domain.Cars.Entities;
 * This way the entity is more structured 
 */
 public sealed class Car : Entity {
+    private Car() {}
 
     public Car(
         Guid id,
@@ -16,9 +17,9 @@ public sealed class Car : Entity {
         Vin vin,
         Currency price,
         Currency maintenancePrice,
-        DateTime lastRentalDate,
+        DateTime? lastRentalDate,
         List<Accesory> accesories,
-        Address address
+        Address? address
     ) : base(id)
     {
         Id = id; 
@@ -35,9 +36,7 @@ public sealed class Car : Entity {
     public Vin? Vin {get; private set;}
     public Address? Address {get; private set;}
     public Currency? Price {get; private set;}
-    public CurrencyType? PriceCurrency {get; private set;}
     public Currency? MaintenancePrice {get; private set;}
-    public CurrencyType? MaintenanceCurrency {get; private set;}
     public DateTime? LastRentalDate {get; internal set;}
     public List<Accesory> Accesories {get; private set;} = new();
 }
